@@ -1,5 +1,11 @@
 import React from 'react';
 import { hydrate } from 'react-dom';
-import Home from './components/Home';
+import { BrowserRouter } from 'react-router-dom';
+import Routes from './Routes';
 
-hydrate(<Home />, document.querySelector('#app'));
+hydrate(
+  <BrowserRouter>
+    <Routes />
+  </BrowserRouter>,
+  document.querySelector('#app')
+);
