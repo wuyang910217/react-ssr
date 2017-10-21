@@ -1,14 +1,14 @@
 import React from 'react';
 // import { Route } from 'react-router-dom';
 
-import Home from './components/Home';
-import UsersList, { loadData } from './components/UsersList';
+import HomePage from './pages/HomePage';
+import UsersListPage from './pages/UsersListPage';
 
 // export default () => {
 //   return (
 //     <div>
-//       <Route exact path="/" component={Home} />
-//       <Route exact path="/users" component={UsersList} />
+//       <Route exact path="/" component={HomePage} />
+//       <Route exact path="/users" component={UsersListPage} />
 //       <Route exact path="/test" component={() => 'This is a test page'} />
 //     </div>
 //   );
@@ -19,11 +19,10 @@ export default [
   {
     path: '/',
     exact: true,
-    component: Home
+    ...HomePage
   },
   {
     path: '/users',
-    loadData,
-    component: UsersList
+    ...UsersListPage
   }
 ];
