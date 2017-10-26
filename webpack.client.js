@@ -9,8 +9,8 @@ const config = {
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'public')
-  },
-  plugins: [new BundleAnalyzerPlugin()]
+  }
+  // plugins: [new BundleAnalyzerPlugin()]
 };
 
 module.exports = merge(baseConfig, config);

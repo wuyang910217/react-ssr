@@ -1,6 +1,7 @@
 import React from 'react';
 // import { Route } from 'react-router-dom';
 
+import App from './App';
 import HomePage from './pages/HomePage';
 import UsersListPage from './pages/UsersListPage';
 
@@ -17,12 +18,17 @@ import UsersListPage from './pages/UsersListPage';
 //服务器端渲染 根据react-router-config配置
 export default [
   {
-    path: '/',
-    exact: true,
-    ...HomePage
-  },
-  {
-    path: '/users',
-    ...UsersListPage
+    ...App,
+    routes: [
+      {
+        path: '/',
+        exact: true,
+        ...HomePage
+      },
+      {
+        path: '/users',
+        ...UsersListPage
+      }
+    ]
   }
 ];
