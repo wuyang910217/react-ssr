@@ -1,6 +1,8 @@
 import React from 'react';
 
-const NotFoundPage = () => {
+// staticContext只在服务器端
+const NotFoundPage = ({ staticContext = {} }) => {
+  staticContext.notFound = true;
   return <h1>Not Found</h1>;
 };
 

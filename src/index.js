@@ -27,8 +27,13 @@ app.get('*', (req, res) => {
     return route.loadData ? route.loadData(store) : null;
   });
   Promise.all(promises).then(() => {
-    const html = renderer(req, store);
-    res.send(html);
+    const context = {};
+    const content = renderer(req, store, context);
+    if (context.notFound) {
+      // 依然会渲染404页面，只是把服务器状态设置为404
+      res.status(404);
+    }
+    res.send(content);
   });
 });
 
