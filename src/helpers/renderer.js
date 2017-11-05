@@ -21,8 +21,8 @@ export default (req, store, context) => {
   return `
     <html>
       <head>
-        %{helmet.title.toString()}
-        %{helmet.meta.toString()}
+        ${helmet.title.toString()}
+        ${helmet.meta.toString()}
       </head>
       <body>
         <div id='app'>${content}</div>

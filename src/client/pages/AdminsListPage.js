@@ -17,7 +17,7 @@ class AdminsList extends Component {
   render() {
     return (
       <div>
-        this is the user list:
+        this is the admin list:
         <ul>{this.renderAdmins()}</ul>
       </div>
     );
