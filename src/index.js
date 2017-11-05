@@ -36,6 +36,11 @@ app.get('*', (req, res) => {
   Promise.all(promises).then(() => {
     const context = {};
     const content = renderer(req, store, context);
+
+    if (context.url) {
+      res.redirect(301, context.url);
+    }
+
     if (context.notFound) {
       // 依然会渲染404页面，只是把服务器状态设置为404
       res.status(404);
