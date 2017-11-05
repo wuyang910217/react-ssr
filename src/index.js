@@ -25,7 +25,14 @@ app.get('*', (req, res) => {
   const routes = matchRoutes(Routes, req.path);
   const promises = routes.map(({ route }) => {
     return route.loadData ? route.loadData(store) : null;
+  }).map(promise => {
+    if (promise) {
+      return new Promise((resolve, reject) => {
+        promise.then(resolve).catch(reject);
+      });
+    }
   });
+
   Promise.all(promises).then(() => {
     const context = {};
     const content = renderer(req, store, context);
